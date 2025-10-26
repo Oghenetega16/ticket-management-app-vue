@@ -1,14 +1,11 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-    <!-- Hero Section Component -->
-    <HeroSection />
+    <div class="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
+        <HeroSection />
 
-    <!-- Features Section Component -->
-    <FeaturesSection />
+        <FeaturesSection />
 
-    <!-- Footer -->
-    <Footer />
-  </div>
+        <Footer />
+    </div>
 </template>
 
 <script setup>
