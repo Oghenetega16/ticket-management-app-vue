@@ -232,7 +232,3 @@ const handleLogout = () => {
   logout()
 }
 </script>
-
-<style scoped>
-/* Add any component-specific styles here */
-</style>

@@ -39,130 +39,129 @@ export const validatePassword = (
 }
 
 export const validatePasswordConfirmation = (
-  password: string,
-  confirmPassword: string
+    password: string,
+    confirmPassword: string
 ): ValidationResult => {
-  if (!confirmPassword) {
-    return { isValid: false, error: 'Please confirm your password' }
-  }
+    if (!confirmPassword) {
+        return { isValid: false, error: 'Please confirm your password' }
+    }
 
-  if (password !== confirmPassword) {
-    return { isValid: false, error: 'Passwords do not match' }
-  }
+    if (password !== confirmPassword) {
+        return { isValid: false, error: 'Passwords do not match' }
+    }
 
-  return { isValid: true }
+    return { isValid: true }
 }
 
 export const validateRequired = (
-  value: string, 
-  fieldName: string = 'This field'
+    value: string, 
+    fieldName: string = 'This field'
 ): ValidationResult => {
-  if (!value || !value.trim()) {
-    return { isValid: false, error: `${fieldName} is required` }
-  }
+    if (!value || !value.trim()) {
+        return { isValid: false, error: `${fieldName} is required` }
+    }
 
-  return { isValid: true }
+    return { isValid: true }
 }
 
 export const validateTicketTitle = (
-  title: string, 
-  maxLength: number = 100
+    title: string, 
+    maxLength: number = 100
 ): ValidationResult => {
-  const requiredCheck = validateRequired(title, 'Title')
-  if (!requiredCheck.isValid) {
-    return requiredCheck
-  }
-
-  if (title.length > maxLength) {
-    return { 
-      isValid: false, 
-      error: `Title must be less than ${maxLength} characters` 
+    const requiredCheck = validateRequired(title, 'Title')
+    if (!requiredCheck.isValid) {
+        return requiredCheck
     }
-  }
 
-  return { isValid: true }
+    if (title.length > maxLength) {
+        return { 
+        isValid: false, 
+        error: `Title must be less than ${maxLength} characters` 
+        }
+    }
+
+    return { isValid: true }
 }
 
 export const validateTicketDescription = (
-  description: string,
-  maxLength: number = 500
+    description: string,
+    maxLength: number = 500
 ): ValidationResult => {
-  // Description is optional, so empty is valid
-  if (!description || !description.trim()) {
-    return { isValid: true }
-  }
-
-  if (description.length > maxLength) {
-    return { 
-      isValid: false, 
-      error: `Description must be less than ${maxLength} characters` 
+    if (!description || !description.trim()) {
+        return { isValid: true }
     }
-  }
 
-  return { isValid: true }
+    if (description.length > maxLength) {
+        return { 
+        isValid: false, 
+        error: `Description must be less than ${maxLength} characters` 
+        }
+    }
+
+    return { isValid: true }
 }
 
 export const validateTicketStatus = (status: string): ValidationResult => {
-  const validStatuses = ['open', 'in_progress', 'closed']
-  
-  if (!status) {
-    return { isValid: false, error: 'Status is required' }
-  }
+    const validStatuses = ['open', 'in_progress', 'closed']
+    
+    if (!status) {
+        return { isValid: false, error: 'Status is required' }
+    }
 
-  if (!validStatuses.includes(status)) {
-    return { isValid: false, error: 'Invalid status value' }
-  }
+    if (!validStatuses.includes(status)) {
+        return { isValid: false, error: 'Invalid status value' }
+    }
 
-  return { isValid: true }
+    return { isValid: true }
 }
 
 export const validateLoginForm = (email: string, password: string) => {
-  return {
-    email: validateEmail(email),
-    password: validatePassword(password)
-  }
+    return {
+        email: validateEmail(email),
+        password: validatePassword(password)
+    }
 }
 
 export const validateSignupForm = (
-  email: string, 
-  password: string, 
-  confirmPassword: string
+    email: string, 
+    password: string, 
+    confirmPassword: string
 ) => {
-  return {
-    email: validateEmail(email),
-    password: validatePassword(password),
-    confirmPassword: validatePasswordConfirmation(password, confirmPassword)
-  }
+    return {
+        email: validateEmail(email),
+        password: validatePassword(password),
+        confirmPassword: validatePasswordConfirmation(password, confirmPassword)
+    }
 }
 
 export const validateTicketForm = (
-  title: string,
-  description: string,
-  status: string
+    title: string,
+    description: string,
+    status: string
 ) => {
-  return {
-    title: validateTicketTitle(title),
-    description: validateTicketDescription(description),
-    status: validateTicketStatus(status)
-  }
+    return {
+        title: validateTicketTitle(title),
+        description: validateTicketDescription(description),
+        status: validateTicketStatus(status)
+    }
 }
 
 export const hasValidationErrors = (
-  validationResults: Record<string, ValidationResult>
+    validationResults: Record<string, ValidationResult>
 ): boolean => {
-  return Object.values(validationResults).some(result => !result.isValid)
+    return Object.values(validationResults).some(result => !result.isValid)
 }
 
 export const getValidationErrors = (
-  validationResults: Record<string, ValidationResult>
+    validationResults: Record<string, ValidationResult>
 ): Record<string, string> => {
-  const errors: Record<string, string> = {}
-  
-  Object.entries(validationResults).forEach(([key, result]) => {
-    if (!result.isValid && result.error) {
-      errors[key] = result.error
-    }
-  })
-  
-  return errors
+    const errors: Record<string, string> = {}
+    
+    Object.entries(validationResults).forEach(([key, result]) => {
+        if (!result.isValid && result.error) {
+            errors[key] = result.error
+        }
+    })
+    
+    return errors
 }
