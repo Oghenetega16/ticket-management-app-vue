@@ -1,0 +1,7 @@
+<template>
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; {{new Date().getFullYear()}} TicketFlow. All rights reserved.</p>
+        </div>
+    </footer>
+</template>
