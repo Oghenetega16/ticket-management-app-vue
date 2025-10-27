@@ -7,7 +7,7 @@
 
         <button 
             @click="$emit('logout')" 
-            class="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+            class="flex items-center cursor-pointer gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
         >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path 

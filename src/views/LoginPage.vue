@@ -28,7 +28,7 @@
 
                 <button 
                     type="submit" 
-                    class="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+                    class="w-full py-3 bg-indigo-600 text-white rounded-lg cursor-pointer font-semibold hover:bg-indigo-700 transition"
                 >
                     Login
                 </button>
@@ -38,7 +38,7 @@
                 Don't have an account? 
                 <button 
                     @click="$router.push('/signup')" 
-                    class="text-indigo-600 hover:underline font-medium"
+                    class="text-indigo-600 hover:underline font-medium cursor-pointer"
                 >
                     Sign up
                 </button>

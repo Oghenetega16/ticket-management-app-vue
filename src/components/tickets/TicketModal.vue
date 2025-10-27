@@ -10,7 +10,7 @@
                     <h2 class="text-2xl font-bold text-gray-900">{{ editingTicket ? 'Edit Ticket' : 'Create Ticket' }}</h2>
                     <button 
                         @click="$emit('close')" 
-                        class="text-gray-500 hover:text-gray-700 transition"
+                        class="text-gray-500 hover:text-gray-700 transition cursor-pointer"
                     >
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -56,14 +56,14 @@
                     <div class="flex gap-4">
                         <button 
                             type="submit" 
-                            class="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+                            class="flex-1 py-3 bg-indigo-600 text-white rounded-lg cursor-pointer font-semibold hover:bg-indigo-700 transition"
                         >
                             {{ editingTicket ? 'Update Ticket' : 'Create Ticket' }}
                         </button>
                         <button 
                             type="button" 
                             @click="$emit('close')" 
-                            class="flex-1 py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition"
+                            class="flex-1 py-3 bg-gray-200 text-gray-800 rounded-lg cursor-pointer font-semibold hover:bg-gray-300 transition"
                         >
                             Cancel
                         </button>

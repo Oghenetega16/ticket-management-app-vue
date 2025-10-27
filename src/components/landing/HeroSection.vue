@@ -21,13 +21,13 @@
                 <div class="flex gap-4 justify-center flex-wrap">
                     <button 
                         @click="$router.push('/login')" 
-                        class="px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition transform hover:scale-105"
+                        class="px-8 py-3 bg-indigo-600 text-white rounded-lg font-semibold cursor-pointer hover:bg-indigo-700 transition transform hover:scale-105"
                     >
                         Login
                     </button>
                     <button 
                         @click="$router.push('/signup')" 
-                        class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold border-2 border-indigo-600 hover:bg-indigo-50 transition transform hover:scale-105"
+                        class="px-8 py-3 bg-white text-indigo-600 rounded-lg font-semibold cursor-pointer border-2 border-indigo-600 hover:bg-indigo-50 transition transform hover:scale-105"
                     >
                         Get Started
                     </button>
