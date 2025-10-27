@@ -20,7 +20,7 @@ export function useAuth() {
         }
     }
 
-    const login = (email: string, password: string): User => {
+    const login = (email: string, _password: string): User => {
         const userData: User = {
             email,
             name: email.split('@')[0] || 'User'

@@ -9,7 +9,7 @@ export interface Toast {
 }
 
 const toast = ref<Toast | null>(null)
-let timeoutId: number | null = null
+let timeoutId: ReturnType<typeof setTimeout> | null = null
 
 export function useToast() {
     const showToast = (
@@ -27,7 +27,7 @@ export function useToast() {
             id: Date.now()
         }
 
-        timeoutId = window.setTimeout(() => {
+        timeoutId = setTimeout(() => {
             hideToast()
         }, duration)
     }
